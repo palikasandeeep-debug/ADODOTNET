@@ -18,14 +18,20 @@ namespace ADODOTNET
         protected void btninsert_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=userdatabase; Integrated Security=True");
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(
-            "insert into logins values('" + txtname.Text + "','" + txtpass.Text + "')", conn);
+            //conn.Open();
+            //SqlCommand cmd = new SqlCommand(
+            //"insert into logins values('" + txtname.Text + "','" + txtpass.Text + "')", conn);
+            //cmd.ExecuteNonQuery();
+            //Response.Write("login sucessful");
+            //conn.Close();
+
+
+           conn.Open();
+            SqlCommand cmd = new SqlCommand("insert into regi values('" + txtname.Text + "','" + txtemail.Text + "','"+txtphn.Text+"','"+txtadd.Text+"')",
+                conn);
             cmd.ExecuteNonQuery();
-            Response.Write("login sucessful");
             conn.Close();
-
-
+            
         }
     }
 }
